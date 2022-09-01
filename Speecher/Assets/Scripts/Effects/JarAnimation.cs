@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JarAnimation : MonoBehaviour, IDoor
+public class JarAnimation : MonoBehaviour, ElementController
 { 
 
    private Animator animator; 
@@ -13,29 +13,29 @@ public class JarAnimation : MonoBehaviour, IDoor
    	animator = GetComponent<Animator>();
    } 
 
-   public void OpenDoor()
+   public void ActivateElement()
    { 
    	isOpen = true;
    	animator.SetBool("JarActivate", true); 
    } 
 
-   public void CloseDoor()
+   public void DeactivateElement()
    {
    	isOpen = false;
    	animator.SetBool("JarActivate", false);
      
    }
 
-   public void ToggleDoor()
+   public void ToggleElement()
    {
       isOpen = !isOpen; 
       if(isOpen) 
       {
-         OpenDoor();
+         ActivateElement();
       } 
       else 
       {
-         CloseDoor();
+         DeactivateElement();
       }
    }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandAnimation : MonoBehaviour, IDoor
+public class HandAnimation : MonoBehaviour, ElementController
 { 
 
    private Animator animator; 
@@ -13,29 +13,29 @@ public class HandAnimation : MonoBehaviour, IDoor
    	animator = GetComponent<Animator>();
    } 
 
-   public void OpenDoor()
+   public void ActivateElement()
    { 
    	isOpen = true;
    	animator.SetBool("HandActivate", true); 
    } 
 
-   public void CloseDoor()
+   public void DeactivateElement()
    {
    	isOpen = false;
    	animator.SetBool("HandActivate", false);
      
    }
 
-   public void ToggleDoor()
+   public void ToggleElement()
    {
       isOpen = !isOpen; 
       if(isOpen) 
       {
-         OpenDoor();
+         ActivateElement();
       } 
       else 
       {
-         CloseDoor();
+         DeactivateElement();
       }
    }
 

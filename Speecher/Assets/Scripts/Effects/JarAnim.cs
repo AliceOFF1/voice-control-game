@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class JarAnim : MonoBehaviour
 {
-	[SerializeField] private GameObject doorGameObject;  
-	private IDoor door;
+	[SerializeField] private GameObject elementGameObject;  
+	private ElementController element;
 	bool Activate = false;
 
 
 
 	private void Awake() 
 	{
-		door = doorGameObject.GetComponent<IDoor>();  
+		element = elementGameObject.GetComponent<ElementController>();  
 	}   
 
 	
@@ -44,12 +44,12 @@ public class JarAnim : MonoBehaviour
     {
        if (Activate == true)
        {
-       	door.OpenDoor(); 
+       	element.ActivateElement(); 
        } 
 
          if (Activate == false)
        {
-       	door.CloseDoor();
+       	element.DeactivateElement();
        }
 
     } 

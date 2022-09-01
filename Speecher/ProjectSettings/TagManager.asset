@@ -8,6 +8,10 @@ TagManager:
   - Ground
   - Elevator
   - DieTrigger
+  - Water
+  - ChekPoint
+  - DestroyPoint
+  - RockDestroyer
   layers:
   - Default
   - TransparentFX

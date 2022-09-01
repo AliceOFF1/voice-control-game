@@ -5,14 +5,14 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
 	[SerializeField] private GameObject doorGameObject;  
-	private IDoor door;
+	private ElementController element;
 	bool Activate = false;
 
 
 
 	private void Awake() 
 	{
-		door = doorGameObject.GetComponent<IDoor>();  
+		element = doorGameObject.GetComponent<ElementController>();  
 	}   
 
 	
@@ -44,12 +44,12 @@ public class Hand : MonoBehaviour
     {
        if (Activate == true)
        {
-       	door.OpenDoor(); 
+       	element.ActivateElement(); 
        } 
 
          if (Activate == false)
        {
-       	door.CloseDoor();
+       	element.DeactivateElement();
        }
 
     } 
