@@ -1,5 +1,5 @@
 # Voice control game
-![logo](ReadmeFiles/Gif/Logo.gif)
+![logo](ReadmeFiles/Picture/Logo.png)
 
 ___
 2D платформер с голосовым управлением. 
