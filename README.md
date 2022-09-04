@@ -33,7 +33,7 @@ ___
 ![logo](ReadmeFiles/Picture/Picture_2.png)
   
 + На пути встречаются препятствия, главному герою необходимо искать способы обойти их;
-+ ![logo](ReadmeFiles/Picture/Picture_4.png)
+![logo](ReadmeFiles/Picture/Picture_4.png)
 
 + Имеются дополнительные платформы, которые также реагируют на голос игрока;
 ___
