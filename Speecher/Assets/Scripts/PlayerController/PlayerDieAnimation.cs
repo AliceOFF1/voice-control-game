@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class PlayerDieAnimation : MonoBehaviour
 {
-	[SerializeField] private GameObject doorGameObject;  
-	private ElementController element;
-	bool Activate = false;
+    [SerializeField] private GameObject doorGameObject;
+    private ElementController element;
+    bool Activate = false;
 
 
 
-	private void Awake() 
-	{
-		element = doorGameObject.GetComponent<ElementController>();  
-	}   
-
-	
-
-	private void OnTriggerEnter2D(Collider2D collider) 
-    
+    private void Awake()
     {
-    	if(collider.GetComponent<Player>() != null)  
-			//Player entered collider! 
-		{
-			 Activate = true;
-		}
-			
-	} 
+        element = doorGameObject.GetComponent<ElementController>();
+    }
 
-	
-	void Update()
+
+
+    private void OnTriggerEnter2D(Collider2D collider)
+
     {
-       if (Activate == true)
-       {
-       	element.ActivateElement(); 
-       } 
+        if (collider.GetComponent<Player>() != null)
+        //Player entered collider! 
+        {
+            Activate = true;
+        }
 
-         if (Activate == false)
-       {
-       	element.DeactivateElement();
-       }
+    }
 
-    } 
+
+    void Update()
+    {
+        if (Activate == true)
+        {
+            element.ActivateElement();
+        }
+
+        if (Activate == false)
+        {
+            element.DeactivateElement();
+        }
+
+    }
 
 }
 

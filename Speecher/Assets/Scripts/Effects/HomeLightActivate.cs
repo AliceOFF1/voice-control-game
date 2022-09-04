@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HomeLightActivate : MonoBehaviour
-{  
+{
 
-	public GameObject trigger;
+    public GameObject trigger;
 
-	[SerializeField] private AudioSource HorrorSound;
+    [SerializeField] private AudioSource HorrorSound;
 
-	AudioSource audioSource; 
-  
+    AudioSource audioSource;
+
     void Start()
     {
-    	audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
 
     }
 
-    
-    private void OnTriggerEnter2D(Collider2D collision) 
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name.Equals("Player"))  
-         
-         {
-        	HorrorSound.Play(); 
-        	Destroy(trigger, 10f);
-         } 
+        if (collision.gameObject.name.Equals("Player"))
+
+        {
+            HorrorSound.Play();
+            Destroy(trigger, 10f);
+        }
     }
 
 }
 
-    
+

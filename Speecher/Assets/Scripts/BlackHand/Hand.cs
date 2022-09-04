@@ -4,54 +4,54 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-	[SerializeField] private GameObject doorGameObject;  
-	private ElementController element;
-	bool Activate = false;
+    [SerializeField] private GameObject doorGameObject;
+    private ElementController element;
+    bool Activate = false;
 
 
 
-	private void Awake() 
-	{
-		element = doorGameObject.GetComponent<ElementController>();  
-	}   
-
-	
-
-	private void OnTriggerEnter2D(Collider2D collider) 
-    
+    private void Awake()
     {
-    	if(collider.GetComponent<Player>() != null)  
-			//Player entered collider! 
-		{
-			 Activate = true;
-		}
-			
-	} 
+        element = doorGameObject.GetComponent<ElementController>();
+    }
 
-	private void OnTriggerExit2D(Collider2D collider) 
-    
+
+
+    private void OnTriggerEnter2D(Collider2D collider)
+
     {
-    	if(collider.GetComponent<Player>() != null)  
-			//Player entered collider! 
-		{
-			 Activate = false;
-		}
-			
-	} 
+        if (collider.GetComponent<Player>() != null)
+        //Player entered collider! 
+        {
+            Activate = true;
+        }
 
-	
-	void Update()
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+
     {
-       if (Activate == true)
-       {
-       	element.ActivateElement(); 
-       } 
+        if (collider.GetComponent<Player>() != null)
+        //Player entered collider! 
+        {
+            Activate = false;
+        }
 
-         if (Activate == false)
-       {
-       	element.DeactivateElement();
-       }
+    }
 
-    } 
+
+    void Update()
+    {
+        if (Activate == true)
+        {
+            element.ActivateElement();
+        }
+
+        if (Activate == false)
+        {
+            element.DeactivateElement();
+        }
+
+    }
 
 }

@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwingSound : MonoBehaviour
-{  
+{
 
-	public GameObject trigger;
+    public GameObject trigger;
 
-	[SerializeField] private AudioSource LaughSound;
+    [SerializeField] private AudioSource LaughSound;
 
-	AudioSource audioSource; 
-  
+    AudioSource audioSource;
+
     void Start()
     {
-    	audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
 
     }
 
-    
-    private void OnTriggerEnter2D(Collider2D collision) 
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name.Equals("Player"))  
-         
-         {
-        	LaughSound.Play(); 
-        	Destroy(trigger, 10f);
-         } 
+        if (collision.gameObject.name.Equals("Player"))
+
+        {
+            LaughSound.Play();
+            Destroy(trigger, 10f);
+        }
     }
 
 }
