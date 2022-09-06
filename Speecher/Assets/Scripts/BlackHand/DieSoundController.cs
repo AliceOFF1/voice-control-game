@@ -2,33 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandDieTrigger : MonoBehaviour
+public class DieSoundController : MonoBehaviour
 {
-    public GameObject DieEffect;
 
     [SerializeField] private AudioSource GlassSound;
     [SerializeField] private AudioSource DieSound;
 
     AudioSource audioSource;
-
+    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        DieEffect.SetActive(false);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
+
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collider.GetComponent<Player>() != null)
 
         {
-            DieEffect.SetActive(true);
+           
             GlassSound.Play();
             DieSound.Play();
+
         }
+
     }
 
-
-
+    
 }

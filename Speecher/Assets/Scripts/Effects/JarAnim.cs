@@ -28,6 +28,17 @@ public class JarAnim : MonoBehaviour
 
     }
 
+    private void OnTriggerStay2D(Collider2D collider)
+
+    {
+        if (collider.GetComponent<Player>() != null)
+        //Player entered collider! 
+        {
+            Activate = false;
+        }
+
+    }
+
     private void OnTriggerExit2D(Collider2D collider)
 
     {

@@ -12,6 +12,7 @@ TagManager:
   - ChekPoint
   - DestroyPoint
   - RockDestroyer
+  - SoundTrigger
   layers:
   - Default
   - TransparentFX

@@ -32,6 +32,7 @@ public class SpeecherJump : MonoBehaviour
         keywordRecognizer.Start();
     }
 
+
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
     {
         systemActions[speech.text].Invoke();
@@ -48,6 +49,14 @@ public class SpeecherJump : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
+        if (isGrounded)
+        {
+            jumpForce = 6;
+        }
+        else
+        {
+            jumpForce = 0;
+        }
     }
 
 

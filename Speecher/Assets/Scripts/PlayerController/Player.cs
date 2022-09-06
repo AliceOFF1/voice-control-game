@@ -19,16 +19,13 @@ public class Player : MonoBehaviour
     public GameObject DestroyPoint;
 
     public VectorValue pos;
-
-
-    public bool PauseGame;
+    
     public GameObject DieWindow;
-
     public GameObject FireEffect;
-    public GameObject ParticleWaterDie;
+    public GameObject ParticleDie;
+    public GameObject PlayerController;
 
     public GameObject TriggerCreator;
-
 
 
 
@@ -45,7 +42,9 @@ public class Player : MonoBehaviour
         keywordRecognizer.Start();
 
         FireEffect.SetActive(true);
-        ParticleWaterDie.SetActive(false);
+        ParticleDie.SetActive(false);
+        DieWindow.SetActive(false);
+
     }
 
 
@@ -97,23 +96,27 @@ public class Player : MonoBehaviour
             SavePlayer();
         }
 
+
         if (coll.gameObject.tag == "DieTrigger")
         {
+            ParticleDie.SetActive(true);
             Die();
         }
+
+
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collider)
+
     {
-        if (collision.CompareTag("ChekPoint"))
+        if (collider.GetComponent<DieSoundController>() != null)
+     
         {
-            SavePlayer();
+            Die();
+
         }
 
-        if (collision.gameObject.tag.Equals("DieTrigger"))
-        {
-            ParticleWaterDie.SetActive(true);
-        }
     }
 
 
@@ -132,20 +135,23 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
-        DieWindow.SetActive(false);
+        PlayerController.SetActive(true);
         Time.timeScale = 1f;
-        PauseGame = false;
+        DieWindow.SetActive(false);
         FireEffect.SetActive(true);
-        ParticleWaterDie.SetActive(false);
+        ParticleDie.SetActive(false);
+        DestroyPoint.SetActive(false);
         TriggerCreator.SetActive(true);
 
     }
 
     void Die()
     {
-        DieWindow.SetActive(true);
         FireEffect.SetActive(false);
-        ParticleWaterDie.SetActive(true);
+        ParticleDie.SetActive(true);
+        DieWindow.SetActive(true);
+        PlayerController.SetActive(false);
+        
     }
 
 
