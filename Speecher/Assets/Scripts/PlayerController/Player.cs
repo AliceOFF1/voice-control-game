@@ -136,7 +136,6 @@ public class Player : MonoBehaviour
         transform.position = position;
 
         PlayerController.SetActive(true);
-        Time.timeScale = 1f;
         DieWindow.SetActive(false);
         FireEffect.SetActive(true);
         ParticleDie.SetActive(false);
