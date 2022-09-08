@@ -28,6 +28,7 @@ ___
   + Остановиться - Stop;
   + Прыжок - Jump;
   + Атака - Fire; 
+![logo](ReadmeFiles/Picture/controller.png)
 
 + При попадании в воду игрок погибает;
 ![logo](ReadmeFiles/Picture/Picture_2.png)
